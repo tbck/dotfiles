@@ -1,3 +1,7 @@
+!!
+! [ ~/.Xdefaults ]
+!!
+
 ! Font rendering
 Xft.antialias:  		1
 Xft.autohint:   		0

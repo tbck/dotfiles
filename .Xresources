@@ -1,4 +1,8 @@
-! Font rendering
+!!
+! [~/.Xresources ]
+!!
+
+!! Font rendering
 Xft.antialias:  		1
 Xft.autohint:   		0
 Xft.dpi:       			96
@@ -8,10 +12,10 @@ Xft.lcdfilter:  		lcddefault
 Xft.rgba:       		rgb
 
 
-! Mouse cursor
+!! Mouse cursor
 Xcursor.theme: Vanilla-DMZ
 
-! URxvt
+!! URxvt
 URxvt.font:			    xft:tewi:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
 URxvt.boldFont:		    xft:tewi:medium:pixelsize=8, xft:tewi:bold:pixelsize=8
 !URxvt.font:			    xft:tewi2a:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
@@ -26,20 +30,18 @@ URxvt.scrollColor: 		#2B2B2B
 URxvt.cursorUnderline:  true
 !URxvt.letterSpace: 		1
 
-! XTerm
+!! XTerm
 XTerm*foreground: 		rgb:C0/C0/C0
 XTerm*background: 		rgb:10/11/11
 
-! Vim
+!! Vim
 !Vim*font:			     xft:Terminus Powerline:medium:pixelsize=12
 !Vim*boldFont:			 xft:Terminus Powerline:medium:pixelsize=12
 
 
-! Colors
-! Defaults
+!! Default colors
 !*background:                   #101111
 !*foreground:                   #C0C0C0
 
-! Colorscheme
-!#include "/home/tbck/.colors/genie_dull"
+!! Colorscheme
 #include "/home/tbck/.colors/gutterslob/rstcogburn"

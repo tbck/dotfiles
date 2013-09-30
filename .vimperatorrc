@@ -1,3 +1,7 @@
+""
+" [ ~/.vimperatorrc ]
+""
+
 "" general settings
 set autocomplete=true
 set noscrollbars

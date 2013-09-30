@@ -1,34 +1,34 @@
-"
+""
 " [ ~/.vimrc ]
 " See the docs for details.
 " http://vimdoc.sourceforge.net/htmldoc/options.html
-"
+""
 
-" Executes pathogen to infect runtime path duh.
+"" Executes pathogen to infect runtime path duh.
 execute pathogen#infect()
 
-" Number of spaces that a <Tab> in the file counts for.
+"" Number of spaces that a <Tab> in the file counts for.
 set tabstop=4
 
-" Number of spaces to use for each step of (auto)indent.
+"" Number of spaces to use for each step of (auto)indent.
 set shiftwidth=4
  
-" Use the appropriate number of spaces to insert a <Tab>.
-" Spaces are used in indents with the '>' and '<' commands
-" and when 'autoindent' is on. To insert a real tab when
-" 'expandtab' is on, use CTRL-V <Tab>.
+"" Use the appropriate number of spaces to insert a <Tab>.
+"" Spaces are used in indents with the '>' and '<' commands
+"" and when 'autoindent' is on. To insert a real tab when
+"" 'expandtab' is on, use CTRL-V <Tab>.
 set expandtab
  
-" When on, a <Tab> in front of a line inserts blanks
-" according to 'shiftwidth'. 'tabstop' is used in other
-" places. A <BS> will delete a 'shiftwidth' worth of space
-" at the start of the line.
+"" When on, a <Tab> in front of a line inserts blanks
+"" according to 'shiftwidth'. 'tabstop' is used in other
+"" places. A <BS> will delete a 'shiftwidth' worth of space
+"" at the start of the line.
 set smarttab
 
-" Show (partial) command in status line.
+"" Show (partial) command in status line.
 set showcmd
 
-" Show line numbers.
+"" Show line numbers.
 set number
 
 "" When a bracket is inserted, briefly jump to the

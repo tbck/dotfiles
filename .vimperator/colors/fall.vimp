@@ -1,0 +1,68 @@
+" ==Vimperator_Color_Scheme==
+
+hi clear
+
+"StatusLine settings
+hi StatusLine color: #746C48; background: #170F0D; max-height: 8px; font-family: cure;
+"hi StatusLineBroken color: #392925; background: #AA964C;
+
+"CmdLine settings excluding Gradient
+hi Normal color: #746C48; background: #170F0D; font-family: cure;
+hi CmdLine background: #170F0D; color: #746C48; font-size: 8pt;
+hi CmdLine>* font-family: cure;
+hi CompDesc color: #746C48; width: 50%; font-size: 8pt; font-family: cure;
+hi CompIcon width: 6px; min-width: 6px; display: none; margin-right: .5ex;
+hi CompItem background: inherit; color: #AA964C;
+hi CompItem[selected] background: #392925; color: #E4DC8C; font-family: cure; font-size: 8pt;
+hi CompMsg font-style: italic; margin-left: 12px;
+hi CompResult width: 45%; overflow: hidden; font-size: 8pt; font-family: cure; font-weight: normal;
+hi CompTitle color: #AF652F; background: #392925; height: 16px; padding-left: .5ex;
+hi CompTitle>* border: 0; height: 8px; font-style: none; padding-left: .5ex; color: #AF652F;
+hi Filter color: #afafaf;
+
+"When using tab complete in CmdLine, line separating Title from function and description
+"hi Gradient height: 1px; margin-bottom: -1px; margin-top: -1px;
+"hi GradientLeft background: #E84F4F;
+"hi GradientRight background: #E84F4F;
+
+"Used with ]f and [f
+hi FrameIndicator background-color: #170F0D; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+
+hi Bell border: 0 none; background: #AF652F; font-family: cure;
+hi ErrorMsg color: #392925; background: #AF652F; font-family: cure;
+
+"Hint section
+"hi Hint font-family: Terminus12; font-size: 8px; color: #C8B55B; background-color: #170F0D; border-color: ButtonShadow; border-width: 1px; border-style: solid; padding 1px 1px 1px 1px;
+hi Hint font-family: Terminus12; font-size: 8pt; color: #C8B55B; background-color: #170F0D; border: solid 1px #170F0D;
+hi Hint::after content: attr(number);
+hi HintActive background: inherit; color: inherit;
+hi HintElem 0;
+hi HintImage opacity: .8; font-family: inherit;
+
+"Other important stuff
+hi InfoMsg color: #E4DC8C; background: #170F0D; font-family: cure;
+hi Message white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block; font-family: cure; background: #5C5142; color: #778725;
+hi WarningMsg color: #392925; background: #AF652F; font-family: cure;
+hi ModeMsg color: #392925; background: #AA964C; font-family: cure;
+hi MoreMsg color: #746C48; background: #170F0D; font-family: cure;
+hi NonText color: #746C48; min-height: 8px; padding-left: 2px;
+hi Question color: #746C48; background: #170F0D; font-family: cure;
+"hi Search font-size: inherit; color: #778725; background-color: #5C5142;
+hi Function color: #746C48; background: #170F0D; font-family: cure;
+hi Number color: #746C48; background: #170F0D; font-family: cure;
+hi String color: #746C48; background: #170F0D; font-family: cure;
+hi Tag color: #746C48; background: #170F0D;
+hi Title color: #746C48; background: #170F0D; font-family: cure;
+hi URL text-decoration: none; color: #AF652F; background: inherit;
+hi URL:hover text-decoration: underline; cursor: pointer;
+hi LineNr color: #746C48; background: #170F0D;
+
+"style -name statusbar chrome://* <<EOM
+"#status-bar statusbarpanel { padding: 0 1px !important; }
+"statusbarpanel > * { margin: 0 !important; padding: 0 2px 0 0 !important; }
+"EOM
+
+hi ContentSeparator border: 0; border-top: none; color: #AA964C;
+
+"For other descriptions of each item, please see ``Styling'' section included with Vimperator
+

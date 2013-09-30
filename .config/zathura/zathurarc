@@ -1,0 +1,19 @@
+set font                      cure
+
+set default-bg                "#170F0D"
+set default-fg                "#746C48"
+
+set inputbar-bg               "#170F0D"
+set inputbar-fg               "#746C48"
+set completion-bg             "#170F0D"
+set completion-fg             "#746C48"
+set statusbar-bg              "#170F0D"
+set statusbar-fg              "#746C48"
+set completion-highlight-bg   "#392925"
+set completion-highlight-fg   "#746C48"
+
+set recolor-darkcolor         "#746C48"
+set recolor-lightcolor        "#170F0D"
+set recolor                   true
+
+map z                         toggle_statusbar

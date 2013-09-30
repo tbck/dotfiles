@@ -1,0 +1,29 @@
+# HTTP Cookie File
+# http://www.netscape.com/newsref/std/cookie_spec.html
+# This is a generated file!  Do not edit.
+# To delete cookies, use the Cookie Manager.
+
+.imgur.com	TRUE	/	FALSE	1426954778	__qca	P0-1586754831-1379619389861
+.imgur.com	TRUE	/	FALSE	1577145000	__cfduid	d6e25f1d575fa85b45aa0b5d5063b4e021379552336696
+.reddit.com	TRUE	/	FALSE	1395765787	__utmz	55650728.1379619671.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+.reddit.com	TRUE	/	FALSE	1443069787	__utma	55650728.2123301348.1379619671.1379619671.1379997787.2
+.pornbusters.org	TRUE	/	FALSE	1395767654	__utmz	15244599.1379999654.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+.pornbusters.org	TRUE	/	FALSE	1443071654	__utma	15244599.39407499.1379999654.1379999654.1379999654.1
+.quantserve.com	TRUE	/	FALSE	1387773927	d	EKQBBgG_DQ
+.quantserve.com	TRUE	/	FALSE	1426966613	mc	523b5255-5bd0a-8523e-b43f0
+#HttpOnly_.github.com	TRUE	/	TRUE	2011468810	logged_in	no
+imgur.com	FALSE	/	FALSE	1395387423	__utmz	1.1379619390.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+imgur.com	FALSE	/	FALSE	1442691423	__utma	1.1164681630.1379619390.1379619390.1379619390.1
+.sstatic.net	TRUE	/	FALSE	1577145000	__cfduid	dfb7556750632e88947ab9eb45f68c2721379997922514
+.stipple.com	TRUE	/	FALSE	1411155428	mp_136adb4cb258d44a912cd34541d55f6e_mixpanel	%7B%22distinct_id%22%3A%20%2241207656713%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fimgur.com%2Fgallery%2FV0gND%22%2C%22%24initial_referring_domain%22%3A%20%22imgur.com%22%7D
+.stipple.com	TRUE	/	FALSE	1395387428	__utmz	48883428.1379619428.1.1.utmcsr=imgur.com|utmccn=(referral)|utmcmd=referral|utmcct=/gallery/V0gND
+.stipple.com	TRUE	/	FALSE	1442691428	__utma	48883428.1977150091.1379619428.1379619428.1379619428.1
+github.com	FALSE	/	FALSE	1396084805	__utmz	1.1380316793.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+github.com	FALSE	/	FALSE	1443388805	__utma	1.1491726759.1380316793.1380316793.1380316793.1
+.twitter.com	TRUE	/	FALSE	1442691414	guest_id	v1%3A137961941433770063
+.stackoverflow.com	TRUE	/	FALSE	1427333292	__qca	P0-1230700415-1379997903692
+.stackoverflow.com	TRUE	/	FALSE	1395765902	__utmz	140029553.1379997902.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)
+.stackoverflow.com	TRUE	/	FALSE	1443069902	__utma	140029553.1973764503.1379997902.1379997902.1379997902.1
+#HttpOnly_.google.com	TRUE	/verify	FALSE	1396129622	SNID	67=NKKDvK6GEiQJymE8lDQbooAL34kwTBXLBZ-66vLB=cGvRgho97-5eLpzG
+#HttpOnly_.google.com	TRUE	/	FALSE	1395809059	NID	67=N0kfUvO7gKpGJvRMZ2nK2HKhG2KZfA7hsvb18XoVqHuyefXj0n919jllOlGf85vk0my8W8KnoO0N4ebbeYSGkKRflJHhAreFZw0rFVGTL_HIP93mH3ybTG6b0g2Pu8ct
+.google.com	TRUE	/	FALSE	1443071565	PREF	ID=4b3f553ae6039807:U=6e3b2a743a63e3c2:FF=0:TM=1379997859:LM=1379999565:S=GSxtMr9LosQr3D72

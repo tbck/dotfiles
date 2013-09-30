@@ -1,0 +1,113 @@
+#
+# bspwm hotkeys
+#
+# 'Annotated' by tbck['s broken english]
+# ... even though most are self explanitory
+
+# exit bspwm
+super + alt + Escape
+    bspc quit
+
+# close window
+super + w
+    bspc window -c
+
+# cycle layouts
+super + t
+    bspc desktop -l next
+
+# balance windows
+super + b
+    bspc desktop -B
+
+# toggle floating/fullscreen window
+super + {s,f}
+    bspc window -t {floating,fullscreen}
+
+# focus previous window/desktop
+super + {grave,Tab}
+    bspc {window,desktop} -f last
+
+# swap current window with previous window
+super + apostrophe
+    bspc window -s last
+
+# transplant current window into presel area
+super + y
+    bspc window -w last.manual
+
+# swap current window with largest window
+super + m
+    bspc window -s biggest
+
+# flip desktop vertically/horizontally
+super + {v,V}
+    bspc desktop -F {vertical,horizontal}
+
+# focus/shift window by direction
+super + {_,shift + }{h,j,k,l}
+    bspc window -{f,s} {left,down,up,right}
+
+# cycle window focus
+super + {_,shift + }c
+    bspc window -f {next,prev}
+
+# cycle windows back/forward
+super + {comma,period}
+    bspc desktop -C {backward,forward}
+
+# move to left/right desktop
+super + bracket{left,right}
+    bspc desktop -f {prev,next}
+
+# presel by direction
+super + ctrl + {h,j,k,l}
+    bspc window -p {left,down,up,right}
+
+# cancel presel on window/desktop
+super + ctrl + {_,shift + }space
+    bspc {window -p cancel,desktop -c}
+
+# push window split
+super + alt + {h,j,k,l}
+    bspc window -e {left,down,up,right} push
+
+# pull window split
+super + alt + shift + {h,j,k,l}
+    bspc window -e {right,up,down,left} pull
+
+# focus desktop
+super + ctrl + {1-9}
+    bspc window -r 0.{1-9}
+
+# move window to desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,window -d} {1-9,0}
+
+# focus clicked window
+:button1
+    bspc pointer -g focus
+
+# resize window splits with pointer
+super + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+# dat
+super + !button{1-3}
+    bspc pointer -t %i %i
+
+#                              #
+#    wm independent hotkeys    #
+#                              #
+
+# spawn terminal
+super + Return
+    urxvt
+
+# run command
+super + space
+    dmenu_run
+
+# make sxhkd reload its configuration files
+super + Escape
+    pkill -USR1 -x sxhkd

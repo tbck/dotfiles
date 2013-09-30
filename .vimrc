@@ -110,9 +110,6 @@ endif
 
 syntax on
 colorscheme tbck-fall
-highlight LineNr ctermfg=0
-highlight Comment ctermfg=0
-highlight NonText ctermfg=0
 
 filetype plugin indent on
 

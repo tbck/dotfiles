@@ -3,33 +3,33 @@
 !!
 
 !! Font rendering
-Xft.antialias:  		1
-Xft.autohint:   		0
-Xft.dpi:       			96
-Xft.hinting:    		1
-Xft.hintstyle:  		hintfull
-Xft.lcdfilter:  		lcddefault
-Xft.rgba:       		rgb
+Xft.antialias:          1
+Xft.autohint:           0
+Xft.dpi:                96
+Xft.hinting:            1
+Xft.hintstyle:          hintfull
+Xft.lcdfilter:          lcddefault
+Xft.rgba:               rgb
 
 !! URxvt
-URxvt.font:			    xft:tewi:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
-URxvt.boldFont:		    xft:tewi:medium:pixelsize=8, xft:tewi:bold:pixelsize=8
-!URxvt.font:             -lucy-tewi2a-medium-r-normal-*-11-90-75-75-p-58-iso10646-1
-URxvt.scrollstyle: 		plain
-URxvt.scrollBar: 		false
-URxvt.scrollBar_right: 	true
-URxvt.scrollColor: 		#2B2B2B
+URxvt.font:             xft:tewi:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
+URxvt.boldFont:         xft:tewi:medium:pixelsize=8, xft:tewi:bold:pixelsize=8
+URxvt.font:             -lucy-tewi2a-medium-r-normal-*-11-90-75-75-p-58-iso10646-1
+URxvt.scrollstyle:      plain
+URxvt.scrollBar:        false
+URxvt.scrollBar_right:  true
+URxvt.scrollColor:      #2B2B2B
 URxvt.cursorUnderline:  true
-!URxvt.depth: 			 32
-!URxvt.letterSpace: 		1
+!URxvt.depth:            32
+!URxvt.letterSpace:      1
 
 !! Vim
-!Vim*font:			     xft:Terminus Powerline:medium:pixelsize=12
-!Vim*boldFont:			 xft:Terminus Powerline:medium:pixelsize=12
+!Vim*font:               xft:Terminus Powerline:medium:pixelsize=12
+!Vim*boldFont:           xft:Terminus Powerline:medium:pixelsize=12
 
 !! Default colors
-*background:                   #101111
-*foreground:                   #C0C0C0
+*background:            #101111
+*foreground:            #C0C0C0
 
 !! Colorscheme
 #include "/home/tbck/.colors/gutterslob/rstcogburn"

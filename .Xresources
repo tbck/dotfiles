@@ -2,6 +2,9 @@
 ! [~/.Xresources ]
 !!
 
+!! Mouse cursor
+Xcursor.theme: Vanilla-DMZ
+
 !! Font rendering
 Xft.antialias:          1
 Xft.autohint:           0
@@ -14,7 +17,7 @@ Xft.rgba:               rgb
 !! URxvt
 URxvt.font:             xft:tewi:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
 URxvt.boldFont:         xft:tewi:medium:pixelsize=8, xft:tewi:bold:pixelsize=8
-URxvt.font:             -lucy-tewi2a-medium-r-normal-*-11-90-75-75-p-58-iso10646-1
+!URxvt.font:             -lucy-tewi2a-medium-r-normal-*-11-90-75-75-p-58-iso10646-1
 URxvt.scrollstyle:      plain
 URxvt.scrollBar:        false
 URxvt.scrollBar_right:  true

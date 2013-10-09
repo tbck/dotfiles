@@ -5,7 +5,7 @@
 ##
 
 ## Configure the system bell.  Options are none, visible, and audible.
-#set bell-style none
+set bell-style none
 
 ## Enable 8 bit input.
 set meta-flag On
@@ -13,7 +13,7 @@ set input-meta On
 set convert-meta Off
 set output-meta On
 
-## Set various nice escape sequences:
+## Set various nice escape sequences
 "\eOd": backward-word
 "\eOc": forward-word
 

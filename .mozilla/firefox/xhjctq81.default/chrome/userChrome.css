@@ -79,7 +79,7 @@
 }#urlbar > #urlbar-icons > #star-button
 {
     display: none !important;
-}#content browser { margin-right:-14px!important; overflow-y:scroll; overflow-x:scroll;}
+}#content browser { margin-right:0px!important; overflow-y:scroll; overflow-x:scroll;}
 .tab-icon-image {
     visibility: hidden !important;
     margin-left: -8px;

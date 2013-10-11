@@ -15,6 +15,9 @@ highlight StatusLine      ctermfg=0   ctermbg=8
 highlight StatusLineNC    ctermfg=8   ctermbg=none
 highlight Directory       ctermfg=9   ctermbg=none
 
+highlight Pmenu           ctermfg=0   ctermbg=none
+highlight PmenuSel        ctermfg=1   ctermbg=0
+
 highlight Comment	      ctermfg=0
 highlight LineNr	      ctermfg=0
 highlight NonText	      ctermfg=0

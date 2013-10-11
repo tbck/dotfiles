@@ -10,6 +10,11 @@ if exists("syntax_on")
 endif
 let g:colors_name = "tbck-fall"
 
+highlight VertSplit       ctermfg=8   ctermbg=none
+highlight StatusLine      ctermfg=0   ctermbg=8
+highlight StatusLineNC    ctermfg=8   ctermbg=none
+highlight Directory       ctermfg=9   ctermbg=none
+
 highlight Comment	      ctermfg=0
 highlight LineNr	      ctermfg=0
 highlight NonText	      ctermfg=0
@@ -51,5 +56,5 @@ highlight SpecialComment  ctermfg=2
 highlight Debug           ctermfg=2
 
 highlight Underlined      ctermfg=12
-highlight Error			  ctermfg=0     ctermbg=9
-highlight Todo		      ctermfg=4	    ctermbg=3
+highlight Error			  ctermfg=0   ctermbg=9
+highlight Todo		      ctermfg=4	  ctermbg=3

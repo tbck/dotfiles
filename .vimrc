@@ -76,7 +76,7 @@ set textwidth=79
 ""           leader after hitting <Enter> in Insert mode. 
 "" t         Auto-wrap text using textwidth (does not apply
 ""           to comments)
-set formatoptions=c,q,r,t 
+set formatoptions=c,q,r 
 
 "" Show the line and column number of the cursor position.
 set ruler
@@ -84,8 +84,9 @@ set ruler
 "" Try to use light or dark background if possible.
 set background=dark
 
-"" Enable the use of middle click for pasting.
-set mouse=v
+"" Enable the use of the mouse
+"" Hold shift to disable for copy/paste
+set mouse=a
 
 "" Enable backspace wrapping.
 set whichwrap=b,s,<,>,[,]
@@ -98,6 +99,9 @@ set nowritebackup
 
 "" Always show the statusbar.
 "set laststatus=2
+
+"" Remove vertical split characters
+set fillchars=vert:\ 
 
 if has("multi_byte")
     if &termencoding == ""
@@ -119,3 +123,10 @@ au BufNewFile *.php set ft=php.html
 
 "" Run ftp in passive mode
 let g:netrw_ftp_cmd = 'ftp -p'
+
+"Added by android-vim:
+set tags+=/home/tbck/.vim/tags
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+au BufRead *.java setlocal omnifunc=javacomplete#Complete
+au BufNewFile *.java setlocal omnifunc=javacomplete#Complete
+let g:SuperTabDefaultCompletionType = 'context'

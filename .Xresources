@@ -5,6 +5,7 @@
 !! Mouse cursor
 Xcursor.theme: Vanilla-DMZ
 
+
 !! Font rendering
 Xft.antialias:          1
 Xft.autohint:           0

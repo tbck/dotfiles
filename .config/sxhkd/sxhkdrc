@@ -4,126 +4,195 @@
 # ... even though most are self explanitory
 ##
 
+
 ##
 # bspwm hotkeys
 ##
 
-## exit bspwm
-super + alt + Escape
-    bspc quit
 
-## close window
-super + w
-    bspc window -c
-
-## cycle layouts
-super + t
-    bspc desktop -l next
-
-## balance windows
-super + b
-    bspc desktop -B
-
-## toggle floating / fullscreen window
-super + {s,f}
-    bspc window -t {floating,fullscreen}
-
-## focus previous window / desktop
-super + {grave,Tab}
-    bspc {window,desktop} -f last
-
-## swap current window with previous window
-super + apostrophe
-    bspc window -s last
-
-## transplant current window into presel area
-super + y
-    bspc window -w last.manual
-
-## swap current window with largest window
-super + m
-    bspc window -s biggest
-
-## flip desktop vertically / horizontally
-super + {v,V}
-    bspc desktop -F {vertical,horizontal}
-
-## focus / shift window by direction
-super + {_,shift + }{h,j,k,l}
-    bspc window -{f,s} {left,down,up,right}
-
-## cycle window focus
-super + {_,shift + }c
-    bspc window -f {next,prev}
-
-## cycle windows back / forward
-super + {comma,period}
-    bspc desktop -C {backward,forward}
-
-## move to left / right desktop
-super + bracket{left,right}
-    bspc desktop -f {prev,next}
-
-## presel by direction
-super + ctrl + {h,j,k,l}
-    bspc window -p {left,down,up,right}
-
-## cancel presel on window / desktop
-super + ctrl + {_,shift + }space
-    bspc {window -p cancel,desktop -c}
-
-## push window split
-super + alt + {h,j,k,l}
-    bspc window -e {left,down,up,right} push
-
-## pull window split
-super + alt + shift + {h,j,k,l}
-    bspc window -e {right,up,down,left} pull
-
-## focus desktop
-super + ctrl + {1-9}
-    bspc window -r 0.{1-9}
-
-## move window to desktop
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f,window -d} {1-9,0}
+## VIEW / FOCUS ##
 
 ## focus clicked window
 ~button1
     bspc pointer -g focus
+## focus / shift window by direction
+super + {_,shift + }{h,j,k,l}
+    bspc window -{f,s} {left,down,up,right}
+## focus or move window to desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,window -d} ^{1-9,10}
+## focus previous window / desktop
+super + {grave,Tab}
+    bspc {window,desktop} -f last
+## cycle window focus
+super + {_,shift + }c
+    bspc window -f {next,prev}
+## cycle focus of tiled windows
+super + {d,shift + d}
+    bspc window -f {next,prev}.tiled
+## cycle focus of floating, unlike or like windows
+super + {_,shift + }{a,v,e}
+    bspc window -f {next,prev}.{floating,unlike,like}
+## focus prev / next desktop
+super + bracket{left,right}
+    bspc desktop -f {prev,next}
+## focus next / next free desktop
+super + alt + bracket{left,right}
+    bspc desktop -f {prev,next}.free
+## focus prev / next occupied desktop
+super + ctrl + bracket{left,right}
+    bspc desktop -f {prev,next}.occupied
+## focus prev / next urgent desktop
+super + ctrl + paren{left,right}
+    bspc desktop -f {prev,next}.urgent
+## change focus, override history
+super + {_,alt + }{o,i}
+    bspc control --record-history off; \
+    bspc {window,desktop} {older,newer} -f; \
+    bspc control --record-history on
+## change focus on current monitor, override history
+super + {_,alt + }{p,n}
+    bspc control --record-history off; \
+    bspc {window,desktop} {older,newer}.local -f; \
+    bspc control --record-history on
+## toggle visibility of all windows
+super + z
+    bspc control --toggle-visibility
+## swap with largest window or focus
+super + {_,shift + }m
+    bspc window -{f,s} biggest
 
+
+## WINDOWS ##
+
+## close window or kill it
+super + w
+    bspc window -{c,k}
+## cycle windows back / forward
+super + {comma,period}
+    bspc desktop -C {backward,forward}
+## toggle floating / fullscreen window
+super + {s,f,x,X,m}
+    bspc window -t {floating,fullscreen,locked,sticky,private}
+## send window to prev / next desktop
+super + shift + bracket{left,right}
+    bspc window -d {prev,next}
+## send window to prev / next desktop and follow
+super + alt + shift + bracket{left,right}
+    bspc window -d {prev,next} -f
+## swap current window with previous window
+super + {_,shift + }apostrophe
+    bspc window -s last{_, -f last}
+## transplant current window into presel area
+super + y
+    bspc window -w last.manual
+## balance windows
+super + b
+    bspc desktop -B
+## push window split
+super + alt + {h,j,k,l}
+    bspc window -e {left,down,up,right} push
+## pull window split
+super + alt + shift + {h,j,k,l}
+    bspc window -e {right,up,down,left} pull
 ## resize window splits with pointer
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
+## explicitly define split
+super + alt + ctrl + {h,j,k,l} ; {0-9}
+    bspc window -e {right,up,down,left} 0.{0-9}
+## presel by direction
+super + ctrl + {h,j,k,l}
+    bspc window -p {left,down,up,right}
+## change presel split
+super + ctrl + {1-9}
+    bspc window -r 0.{1-9}
+## cancel presel on window / desktop
+super + ctrl + {_,shift + }space
+    bspc {window -p cancel,desktop -c}
+## set one shot property for next opened window
+super + alt + {s,f,x,X,m}
+    bspc rule -a \* {--floating,--fullscreen,--locked,--sticky,--private} --one-shot
+## open next window on a certain desktop
+super + alt + {1-9,0}
+    bspc rule -a \* -d ^{1-9,10} --one-shot
 
+
+## DESKTOPS ##
+
+## cycle layouts
+super + t
+    bspc desktop -l next
+## flip desktop vertically / horizontally
+super + {backslash,shift + backslash}
+    bspc desktop -F {vertical,horizontal}
+## rotate desktop 90* by direction or 180*
+super + {r,shift + r,u}
+    bpsc desktop -R {90,-90,180}
+
+
+## TAGS ##
+
+## show only this tag
+alt + {1-9,0}
+    bspc tag -d focused -s ^{1-9,10}
+## toggle tag visibility on focused desktop
+alt + control + {1-9,0}
+    bspc tag -d focused -t ^{1-9,10}
+## set focused window to tag
+alt + control + shift + {1-9,0}
+    bspc tag -w focused -s ^{1-9,10}
+
+
+## OTHER ##
+
+## reset rules
+super + alt + space
+    bspc rule -r \*
 ## dat
 super + !button{1-3}
     bspc pointer -t %i %i
+## exit bspwm and kill panel. save history or not
+super + alt + {shift + ,_}Escape
+    pkill -x panel; {bspc quit 1,\
+     bspc query -T > "$BSPWM_TREE"; \
+     bspc query -H > "$BSPWM_HISTORY"; \
+     bspc query -S > "$BSPWM_STACK"; \
+     bspc quit}
+
+
 
 ##                         
 # wm independent hotkeys
 ##                         
 
+
 ## spawn terminal
 super + Return
     urxvt
-
 ## run command
 super + space
     dmenu_run
-
+## take screenshot or desktop or window
+super + {XF86LaunchA,shift + @XF86LaunchA}
+    scrot {-e,-s -e} 'sxiv $f'
 ## raise / lower volume
 XF86Audio{Raise,Lower}Volume
     amixer -M set Master 4%{+,-}
-
 ## mute volume
 XF86AudioMute
     amixer -M set Master toggle
-
 ## sleep
 XF86Sleep
     pm-suspend
 
+
+
+##
+# sxhkd
+##
+
 ## make sxhkd reload its configuration files.
 super + Escape
     pkill -USR1 -x sxhkd
+

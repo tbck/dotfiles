@@ -35,4 +35,4 @@ fi
 mkfifo "$PANEL_FIFO"
 ## Start sxhkd and finally bspwm
 sxhkd &
-bspwm -s "$PANEL_FIFO" -p W
+exec bspwm -s "$PANEL_FIFO" -p W

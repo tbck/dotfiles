@@ -5,26 +5,26 @@
 ##
 
 ## Autoloads
-#autoload -U colors && colors
+autoload -Uz compinit
 
-## Prompt
-PROMPT="%{$fg_bold[black]%}────╼%{$reset_color%} "
-RPROMPT="%{$fg_bold[red]%}%~%{$reset_color%}"
+## Options
+setopt extendedglob
 
 ## General zsh settings
 HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=2000
-bindkey -v
+# vim or emacs line editing
+bindkey -e
 
-## Options
-setopt extendedglob
+## Prompt
+PROMPT="%{$fg_bold[black]%}────╼%{$reset_color%} "
+RPROMPT="%{$fg_bold[red]%}%~%{$reset_color%}"
 
 ## Completion settings
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-#zstyle :compinstall filename '/home/tbck/.zshrc'
-autoload -Uz compinit
+# initialize completion
 compinit
 

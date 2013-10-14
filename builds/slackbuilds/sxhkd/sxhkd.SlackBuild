@@ -76,7 +76,7 @@ make
 make install DESTDIR=$PKG PREFIX=$PREFIX MANPREFIX=$MANPREFIX
 make clean
 
-# Make sure our PREFIX and MAN PREFIX worked, bspwm tries to install
+# Make sure our PREFIX and MAN PREFIX worked, sxhkd tries to install
 # in /usr/local/bin we want /usr/bin.
 # This isn't necessary I'm just being safe.
 if [ -d $PKG/usr/local ] ; then

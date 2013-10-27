@@ -42,15 +42,15 @@ super + alt + bracket{left,right}
 ## focus prev / next occupied desktop
 super + ctrl + bracket{left,right}
     bspc desktop -f {prev,next}.occupied
-## focus prev / next urgent desktop
+## focus prev / next urgent desktop ?working?
 super + ctrl + paren{left,right}
     bspc desktop -f {prev,next}.urgent
-## change focus, override history
+## change focus, override history?
 super + {_,alt + }{o,i}
     bspc control --record-history off; \
     bspc {window,desktop} {older,newer} -f; \
     bspc control --record-history on
-## change focus on current monitor, override history
+## change focus on current monitor, override history?
 super + {_,alt + }{p,n}
     bspc control --record-history off; \
     bspc {window,desktop} {older,newer}.local -f; \
@@ -59,20 +59,20 @@ super + {_,alt + }{p,n}
 super + z
     bspc control --toggle-visibility
 ## swap with largest window or focus
-super + {_,shift + }m
-    bspc window -{f,s} biggest
+super + {_,alt + }m
+    bspc window -{s,f} biggest
 
 
 ## WINDOWS ##
 
 ## close window or kill it
 super + w
-    bspc window -{c,k}
-## cycle windows back / forward
+    bspc window -c
+## cycle windows back / forward not workintggggg
 super + {comma,period}
     bspc desktop -C {backward,forward}
 ## toggle floating / fullscreen window
-super + {s,f,x,X,m}
+super + {s,f,x,X,M}
     bspc window -t {floating,fullscreen,locked,sticky,private}
 ## send window to prev / next desktop
 super + shift + bracket{left,right}
@@ -134,25 +134,26 @@ super + {r,shift + r,u}
 ## TAGS ##
 
 ## show only this tag
-alt + {1-9,0}
-    bspc tag -d focused -s ^{1-9,10}
+#alt + {1-9,0}
+#    bspc tag -d focused -s ^{1-9,10}
 ## toggle tag visibility on focused desktop
-alt + control + {1-9,0}
-    bspc tag -d focused -t ^{1-9,10}
+#alt + control + {1-9,0}
+#    bspc tag -d focused -t ^{1-9,10}
 ## set focused window to tag
-alt + control + shift + {1-9,0}
-    bspc tag -w focused -s ^{1-9,10}
+#alt + control + shift + {1-9,0}
+#    bspc tag -w focused -s ^{1-9,10}
 
 
-## OTHER ##
+## OTHER #####################
 
 ## reset rules
-super + alt + space
-    bspc rule -r \*
+#super + alt + space
+#    bspc rule -r \*
+
 ## dat
 super + !button{1-3}
     bspc pointer -t %i %i
-## exit bspwm and kill panel. save history or not
+## exit bspwm and kill panel. save history if just restarting
 super + alt + {shift + ,_}Escape
     pkill -x panel; {bspc quit 1,\
      bspc query -T > "$BSPWM_TREE"; \
@@ -161,38 +162,42 @@ super + alt + {shift + ,_}Escape
      bspc quit}
 
 
-
-##                         
-# wm independent hotkeys
-##                         
+##                            ##
+#    wm independent hotkeys    #
+##                            ##
 
 
 ## spawn terminal
 super + Return
     urxvt
+
 ## run command
 super + space
-    dmenu_run
+    run_menu
+
 ## take screenshot or desktop or window
-super + {XF86LaunchA,shift + @XF86LaunchA}
+super + {Pause,shift + Pause}
     scrot {-e,-s -e} 'sxiv $f'
+
 ## raise / lower volume
 XF86Audio{Raise,Lower}Volume
     amixer -M set Master 4%{+,-}
+
 ## mute volume
 XF86AudioMute
     amixer -M set Master toggle
+
 ## sleep
-XF86Sleep
-    pm-suspend
+#XF86Sleep
+#    pm-suspend
 
 
 
-##
-# sxhkd
-##
+##           ##
+#    sxhkd    #
+##           ##
+
 
 ## make sxhkd reload its configuration files.
 super + Escape
     pkill -USR1 -x sxhkd
-

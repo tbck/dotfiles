@@ -1,7 +1,0 @@
-#!/bin/bash
-# dwb: Control v
-
-ID=$(echo $1 | cut -d '=' -f2 | cut -d '&' -f1)
-
-#mplayer `youtube-dl -g --skip-download -f best $ID`
-mplayer `youtube-dl -g --skip-download -f 34/35/18/36/22/18/37 $ID`

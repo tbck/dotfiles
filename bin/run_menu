@@ -1,0 +1,10 @@
+#!/bin/sh
+
+font='-artwiz-cure-medium-r-normal-*-11-110-75-75-p-90-iso8859-1' 
+prompt='-'  
+bg='#170F0D'
+fg='#AA964C' 
+sbg='#170F0D'
+sfg='#E4DC8C' 
+
+dmenu_run -fn $font -b -nb $bg -nf $fg -sb $sbg -sf $sfg -x 185 -w 994 -h 14 -q

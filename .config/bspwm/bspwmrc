@@ -7,15 +7,14 @@
 
 ## Monitors, Desktops & Tags
 bspc monitor -d 1 2 3
-bspc tag -e I II III
 
 ## Window rules
 bspc rule -a Gimp -d ^3 --follow --floating
 
 ## Configuration
-bspc config split_ratio            0.58
+bspc config split_ratio            0.64
 bspc config border_width           2
-bspc config window_gap             10
+bspc config window_gap             12
 bspc config borderless_monocle     false
 bspc config gapless_monocle        false
 bspc config focus_follows_pointer  true
@@ -29,6 +28,8 @@ if [ -e "$BSPWM_TREE" ] ; then
 fi
 
 ## Misc Startup
+sxhkd &
+compton -cfFb -o 0.32 -O 0.03 -I 0.03 -t -11 -l -11 -r 4 -D2
 xsetroot -cursor_name left_ptr
 unclutter -root -jitter 5 -idle 2 -noevents &
 

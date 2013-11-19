@@ -9,7 +9,7 @@ alias su="su -s /bin/zsh"
 alias sudo="sudo -E"
 alias sxiv="sxiv -dr"
 
-alias changelog="curl -s ftp://ftp.slackware.com/pub/slackware/slackware-current/ChangeLog.txt | less"
+alias changelog="curl -s ftp://ftp.slackware.com/pub/slackware/slackware64-current/ChangeLog.txt | less"
 
 # Mirror Gail's webpage. -nc prevents overwriting preexisting files.
 alias gail='wget -R html,htm -r -l inf --no-remove-listing -P /home/tbck/documents/COS/ \

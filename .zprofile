@@ -17,5 +17,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 export PATH="$PATH:."
 
-## Start x automatically
-[[ -z $DISPLAY ]] && startx
+## Start x automatically (ssh is nawp need some more checks)
+#[[ -z $DISPLAY ]] && startx

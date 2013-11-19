@@ -8,14 +8,11 @@ I'm sure I've missed something...
 Screens & Themes
 ================
 
-Fall:
+Fall-Laptop:
+![](https://raw.github.com/tbck/dotfiles/master/pictures/android.png)
+
+Fall-Netbook:
 ![](https://raw.github.com/tbck/dotfiles/master/pictures/droid-fall.png)
 
-![](https://raw.github.com/tbck/dotfiles/master/pictures/fall-current.png)
-
-Blue:
+Blue-Desktop:
 ![](https://raw.github.com/tbck/dotfiles/master/pictures/droid2.png)
-
-![](https://raw.github.com/tbck/dotfiles/master/pictures/droid.png)
-
-![](https://raw.github.com/tbck/dotfiles/master/pictures/blue-current.png)

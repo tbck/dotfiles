@@ -24,11 +24,11 @@ highlight Comment	      ctermfg=0
 highlight LineNr	      ctermfg=0
 highlight NonText	      ctermfg=0
 
-highlight Constant	      ctermfg=14
+highlight Constant	      ctermfg=9
 highlight String 	      ctermfg=2
 highlight Character	      ctermfg=2
 highlight Number 	      ctermfg=12
-highlight Boolean	      ctermfg=14
+highlight Boolean	      ctermfg=9
 highlight Float 	      ctermfg=12
 
 highlight Identifier      ctermfg=6
@@ -38,7 +38,7 @@ highlight Statement       ctermfg=11
 highlight Conditional     ctermfg=11
 highlight Repeat          ctermfg=11
 highlight Label           ctermfg=11
-highlight Operator        ctermfg=11
+highlight Operator        ctermfg=3
 highlight Keyword         ctermfg=11
 highlight Exception       ctermfg=11
 
@@ -62,4 +62,4 @@ highlight Debug           ctermfg=2
 
 highlight Underlined      ctermfg=12
 highlight Error			  ctermfg=0   ctermbg=9
-highlight Todo		      ctermfg=4	  ctermbg=3
+highlight Todo		      ctermfg=4	  ctermbg=0

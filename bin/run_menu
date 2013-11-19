@@ -7,4 +7,4 @@ fg='#AA964C'
 sbg='#170F0D'
 sfg='#E4DC8C' 
 
-dmenu_run -fn $font -b -nb $bg -nf $fg -sb $sbg -sf $sfg -x 185 -w 994 -h 14 -q
+dmenu_run -fn $font -b -nb $bg -nf $fg -sb $sbg -sf $sfg -x 185 -w 994 -h 14 -q -name 'dmenu' -class 'dmenu'

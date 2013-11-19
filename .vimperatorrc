@@ -14,6 +14,7 @@ set hlsearch
 set history=50
 set urlseparator=;
 set incsearch
+set focuscontent=true
 set ignorecase
 set smartcase
 set hinttags="//*[@onclick or @onmouseover or @onmousedown or @onmouseup or @oncommand or @class='lk' or @role='link' or @role='button' or @role='option'] | //input[not(@type='hidden')] | //a | //area | //iframe | //textarea | //button | //select | //xhtml:input[not(@type='hidden')] | //xhtml:a | //xhtml:area | //xhtml:iframe | //xhtml:textarea | //xhtml:button | //xhtml:select"
@@ -48,6 +49,9 @@ noremap R :source ~/.vimperatorrc<cr>
 "" hide bar with ctrl-f1
 map <silent> <C-F1> :js toggle_bottombar()<CR>
 
+map <silent> <C-a> :js load_video()<CR>
+map <silent> <C-l> :js load_playlist()<CR>
+
 :js << EOF
 function toggle_bottombar() {
     var bb = document.getElementById('liberator-bottombar');
@@ -58,3 +62,16 @@ function toggle_bottombar() {
     }
 EOF
 
+:js << EOF
+function load_playlist() {
+    var url = content.location.href;
+    liberator.execute("!consoletube -p '"+url+"' > /dev/null 2>&1 &");
+    }
+EOF
+
+:js << EOF
+function load_video() {
+    var url = content.location.href;
+    liberator.execute("!vlc '"+url+"' > /dev/null 2>&1 &");
+    }
+EOF

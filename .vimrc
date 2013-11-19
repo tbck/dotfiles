@@ -103,6 +103,9 @@ set nowritebackup
 "" Remove vertical split characters
 set fillchars=vert:\ 
 
+"" Toggle automatic indenting during paste
+set pastetoggle=<F2>
+
 if has("multi_byte")
     if &termencoding == ""
         let &termencoding = &encoding
@@ -117,9 +120,12 @@ colorscheme tbck-fall
 
 filetype plugin indent on
 
-"" Hopefully sets .php files to be html also
-au BufRead *.php set ft=php.html
-au BufNewFile *.php set ft=php.html
+if has("autocmd")
+    au BufReadPost *.rkt,*.rktl set filetype=scheme
+    "" Hopefully sets .php files to be html also
+    au BufRead *.php set ft=php.html
+    au BufNewFile *.php set ft=php.html
+endif
 
 "" Run ftp in passive mode
 let g:netrw_ftp_cmd = 'ftp -p'

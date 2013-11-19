@@ -42,15 +42,15 @@ super + alt + bracket{left,right}
 ## focus prev / next occupied desktop
 super + ctrl + bracket{left,right}
     bspc desktop -f {prev,next}.occupied
-## focus prev / next urgent desktop ?working?
+## focus prev / next urgent desktop
 super + ctrl + paren{left,right}
     bspc desktop -f {prev,next}.urgent
-## change focus, override history?
+## change focus, override history
 super + {_,alt + }{o,i}
     bspc control --record-history off; \
     bspc {window,desktop} {older,newer} -f; \
     bspc control --record-history on
-## change focus on current monitor, override history?
+## change focus on current monitor, override history
 super + {_,alt + }{p,n}
     bspc control --record-history off; \
     bspc {window,desktop} {older,newer}.local -f; \
@@ -68,27 +68,30 @@ super + {_,alt + }m
 ## close window or kill it
 super + w
     bspc window -c
+## transplant current window into presel area
+super + y
+    bspc window -w last.manual
+## change presel split
+super + ctrl + {1-9}
+    bspc window -r 0.{1-9}
 ## cycle windows back / forward not workintggggg
 super + {comma,period}
     bspc desktop -C {backward,forward}
 ## toggle floating / fullscreen window
 super + {s,f,x,X,M}
     bspc window -t {floating,fullscreen,locked,sticky,private}
-## send window to prev / next desktop
-super + shift + bracket{left,right}
-    bspc window -d {prev,next}
-## send window to prev / next desktop and follow
-super + alt + shift + bracket{left,right}
-    bspc window -d {prev,next} -f
-## swap current window with previous window
-super + {_,shift + }apostrophe
-    bspc window -s last{_, -f last}
-## transplant current window into presel area
-super + y
-    bspc window -w last.manual
 ## balance windows
 super + b
     bspc desktop -B
+## send window to prev / next desktop
+super + shift + bracket{left,right}
+    bspc window -d {prev,next}
+## swap current window with previous window
+super + {_,shift + }apostrophe
+    bspc window -s last{_, -f last}
+## presel by direction
+super + ctrl + {h,j,k,l}
+    bspc window -p {left,down,up,right}
 ## push window split
 super + alt + {h,j,k,l}
     bspc window -e {left,down,up,right} push
@@ -98,24 +101,21 @@ super + alt + shift + {h,j,k,l}
 ## resize window splits with pointer
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
-## explicitly define split
-super + alt + ctrl + {h,j,k,l} ; {0-9}
-    bspc window -e {right,up,down,left} 0.{0-9}
-## presel by direction
-super + ctrl + {h,j,k,l}
-    bspc window -p {left,down,up,right}
-## change presel split
-super + ctrl + {1-9}
-    bspc window -r 0.{1-9}
 ## cancel presel on window / desktop
 super + ctrl + {_,shift + }space
     bspc {window -p cancel,desktop -c}
+## send window to prev / next desktop and follow
+super + alt + shift + bracket{left,right}
+    bspc window -d {prev,next} -f
 ## set one shot property for next opened window
-super + alt + {s,f,x,X,m}
+super + alt + {s,f,x,X,M}
     bspc rule -a \* {--floating,--fullscreen,--locked,--sticky,--private} --one-shot
 ## open next window on a certain desktop
 super + alt + {1-9,0}
     bspc rule -a \* -d ^{1-9,10} --one-shot
+## explicitly define split
+super + alt + ctrl + {h,j,k,l} ; {0-9}
+    bspc window -e {right,up,down,left} 0.{0-9}
 
 
 ## DESKTOPS ##
@@ -127,29 +127,19 @@ super + t
 super + {backslash,shift + backslash}
     bspc desktop -F {vertical,horizontal}
 ## rotate desktop 90* by direction or 180*
-super + {r,shift + r,u}
+super + {r,R,u}
     bpsc desktop -R {90,-90,180}
 
 
-## TAGS ##
 
-## show only this tag
-#alt + {1-9,0}
-#    bspc tag -d focused -s ^{1-9,10}
-## toggle tag visibility on focused desktop
-#alt + control + {1-9,0}
-#    bspc tag -d focused -t ^{1-9,10}
-## set focused window to tag
-#alt + control + shift + {1-9,0}
-#    bspc tag -w focused -s ^{1-9,10}
+## OTHER ##
 
-
-## OTHER #####################
-
+## spawn a transparent frame
+super + alt + space
+    create_frame
 ## reset rules
-#super + alt + space
+#super + shift + alt + space
 #    bspc rule -r \*
-
 ## dat
 super + !button{1-3}
     bspc pointer -t %i %i
@@ -186,11 +176,6 @@ XF86Audio{Raise,Lower}Volume
 ## mute volume
 XF86AudioMute
     amixer -M set Master toggle
-
-## sleep
-#XF86Sleep
-#    pm-suspend
-
 
 
 ##           ##

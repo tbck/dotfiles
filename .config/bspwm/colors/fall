@@ -3,6 +3,8 @@
 # Gutterslob cogburn borders
 bspc config focused_border_color \#544B2E
 bspc config normal_border_color \#392925
+bspc config focused_private_border_color \#544B2E
+bspc config normal_private_border_color \#392925
 
 # leaves :)
 hsetroot -fill ~/pictures/walls/large/leaves2.jpg

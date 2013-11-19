@@ -21,6 +21,15 @@ bspc config focus_follows_pointer  true
 bspc config history_aware_focus    true
 bspc config auto_cancel            true
 
+## Frames
+bspc rule -a BSPWM_FRAME --frame
+bspc config normal_frame_opacity    0.0
+bspc config active_frame_opacity    0.0
+bspc config focused_frame_opacity   0.1
+
+## Colorscheme - "theme"
+source ~/.config/bspwm/colors/fall
+
 ## History
 if [ -e "$BSPWM_TREE" ] ; then
     bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
@@ -29,12 +38,10 @@ fi
 
 ## Misc Startup
 sxhkd &
-compton -cfFb -o 0.32 -O 0.03 -I 0.03 -t -11 -l -11 -r 4 -D2
 xsetroot -cursor_name left_ptr
 unclutter -root -jitter 5 -idle 2 -noevents &
-
-## Colorscheme - "theme"
-source ~/.config/bspwm/colors-fall
+compton -cfFb -o 0.32 -O 0.03 -I 0.03 -t -11 -l -11 -r 4 -D2 \
+    --shadow-exclude 'g:ai:dmenu'
 
 ## Lastly, start panel.
 panel &

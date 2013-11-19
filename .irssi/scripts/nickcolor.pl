@@ -4,12 +4,12 @@ use vars qw($VERSION %IRSSI);
 $VERSION = "1";
 %IRSSI = (
     authors     => "Timo Sirainen, Ian Peters",
-    contact	=> "tss\@iki.fi", 
+    contact	    => "tss\@iki.fi", 
     name        => "Nick Color",
     description => "assign a different color for each nick",
-    license	=> "Public Domain",
-    url		=> "http://irssi.org/",
-    changed	=> "2002-03-04T22:47+0100"
+    license	    => "Public Domain",
+    url		    => "http://irssi.org/",
+    changed	    => "2002-03-04T22:47+0100"
 );
 
 # hm.. i should make it possible to use the existing one..
@@ -19,7 +19,7 @@ Irssi::theme_register([
 
 my %saved_colors;
 my %session_colors = {};
-my @colors = qw/2 3 6 10 11 12 13/;
+my @colors = qw/2 3 4 5 6 7 8 9 10 11 12 13/;
 
 sub load_colors {
   open COLORS, "$ENV{HOME}/.irssi/saved_colors";

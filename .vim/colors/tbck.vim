@@ -1,7 +1,8 @@
 " local syntax file - set colors on a per-machine basis:
 " vim: tw=0 ts=4 sw=4
 " Vim color file
-" Last Change:	2013 Sep 30
+" Maintainer:   Tyler Buck
+" Last Change:	2013 Nov
 
 hi clear
 set background=dark
@@ -10,46 +11,49 @@ if exists("syntax_on")
 endif
 let g:colors_name = "tbck"
 
-highlight Comment	      ctermfg=0
-highlight LineNr	      ctermfg=0
-highlight NonText	      ctermfg=0
+highlight Comment           ctermfg=8
+highlight LineNr            ctermfg=8
+highlight NonText           ctermfg=8
 
-highlight Constant	      ctermfg=14
-highlight String 	      ctermfg=2 
-highlight Character	      ctermfg=2 
-highlight Number 	      ctermfg=12
-highlight Boolean	      ctermfg=14
-highlight Float 	      ctermfg=12
+highlight Constant	        ctermfg=14
+highlight String            ctermfg=2 
+highlight Character         ctermfg=2 
+highlight Number            ctermfg=12
+highlight Boolean           ctermfg=14
+highlight Float             ctermfg=12
 
-highlight Identifier      ctermfg=6
-highlight Function        ctermfg=6
+highlight Identifier        ctermfg=6
+highlight Function          ctermfg=6
 
-highlight Statement       ctermfg=11
-highlight Conditional     ctermfg=11
-highlight Repeat          ctermfg=11
-highlight Label           ctermfg=11
-highlight Operator        ctermfg=11
-highlight Keyword         ctermfg=11
-highlight Exception       ctermfg=11
+highlight Statement         ctermfg=3			   cterm=bold
+highlight Conditional       ctermfg=3
+highlight Repeat            ctermfg=3
+highlight Label             ctermfg=3
+highlight Operator          ctermfg=3
+highlight Keyword           ctermfg=3
+highlight Exception         ctermfg=3
 
-highlight PreProc	      ctermfg=10
-highlight Include 	      ctermfg=12
-highlight Define 	      ctermfg=12
-highlight Macro 	      ctermfg=12
-highlight PreCondit       ctermfg=10
+highlight PreProc	        ctermfg=10
+highlight Include 	        ctermfg=12
+highlight Define 	        ctermfg=12
+highlight Macro 	        ctermfg=12
+highlight PreCondit         ctermfg=10
 
-highlight Type		      ctermfg=9
-highlight StorageClass 	  ctermfg=9
-highlight Structure 	  ctermfg=9
-highlight Typedef         ctermfg=10
+highlight Type		        ctermfg=2
+highlight StorageClass 	    ctermfg=2
+highlight Structure         ctermfg=2
+highlight Typedef           ctermfg=3
 
-highlight Special	      ctermfg=2
-highlight SpecialChar     ctermfg=2
-highlight Tag             ctermfg=2
-highlight Delimiter       ctermfg=2
-highlight SpecialComment  ctermfg=2
-highlight Debug           ctermfg=2
+highlight Special	        ctermfg=12
+highlight SpecialChar       ctermfg=2
+highlight Tag               ctermfg=2
+highlight Delimiter         ctermfg=2
+highlight SpecialComment    ctermfg=2
+highlight Debug             ctermfg=2
 
-highlight Underlined      ctermfg=12
-highlight Error			  ctermfg=0     ctermbg=9
-highlight Todo		      ctermfg=4	    ctermbg=3
+highlight Error			    ctermfg=0   ctermbg=9
+highlight Todo		        ctermfg=4   ctermbg=3
+highlight Directory         ctermfg=2
+highlight StatusLine        ctermfg=11  ctermbg=12 cterm=none
+highlight Underlined        ctermfg=12
+highlight Search		    		    ctermbg=3

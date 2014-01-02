@@ -32,8 +32,12 @@ URxvt.cursorUnderline:  true
 !Vim*boldFont:           xft:Terminus Powerline:medium:pixelsize=12
 
 !! Default colors
-*background:            #101111
-*foreground:            #C0C0C0
+!*background:            #101111
+!*foreground:            #C0C0C0
+
+!! Dwarf Fortress colors for ncurses
+#include "/home/tbck/.colors/dwarffortress/default"
 
 !! Colorscheme
 #include "/home/tbck/.colors/gutterslob/rstcogburn"
+

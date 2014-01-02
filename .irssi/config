@@ -6,18 +6,33 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
   }
 );
 
+
 chatnets = {
-  unixhub = { type = "IRC"; };
-  Freenode = { type = "IRC"; };
-  rizon = { type = "IRC"; };
+  unixhub = {
+    type = "IRC";
+    autosendcmd = "/msg NickServ identify hashdriveway;wait 2000";
+  };
+  freenode = { type = "IRC"; autosendcmd = "wait 2000"; };
 };
 
+
 channels = (
-  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "no"; }
+  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "yes"; },
+  { name = "#bspwm"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "##slackware"; chatnet = "freenode"; autojoin = "no"; }
 );
+
 
 aliases = {
   J = "join";
@@ -69,6 +84,7 @@ aliases = {
   RESET = "set -default";
 };
 
+
 statusbar = {
   # formats:
   # when using {templates}, the template is shown only if it's argument isn't
@@ -79,25 +95,21 @@ statusbar = {
     # start/end text in statusbars
     barstart = "{sbstart}";
     barend = "{sbend}";
-
     topicbarstart = "{topicsbstart}";
     topicbarend = "{topicsbend}";
-
     # treated "normally", you could change the time/user name to whatever
-    time = "{sb $Z}";
-    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
-
+    time = "";
+    user = "";
     # treated specially .. window is printed with non-empty windows,
     # window_empty is printed with empty windows
-    window = "{sb $winref:$tag/$itemname{sbmode $M}}";
-    window_empty = "{sb $winref{sbservertag $tag}}";
-    #prompt = "{prompt $[.15]itemname}";
+    window = "";
+    window_empty = "";
     #prompt = "$c >> ";
-    prompt = "$c%K             └─ ";
+    #prompt = "$c %m$[-11]C %K»  ";
+    prompt = "$c %k$[-11]C %K└─ ";
     prompt_empty = "{prompt $winname}";
     topic = " $topic";
     topic_empty = " Irssi v$J - http://www.irssi.org";
-
     # all of these treated specially, they're only displayed when needed
     lag = "{sb Lag: $0-}";
     act = "{sb Act: $0-}";
@@ -112,7 +124,6 @@ statusbar = {
     # contains all the normal items.
     window = {
       disabled = "yes";
-
       # window, root
       type = "window";
       # top, bottom
@@ -121,7 +132,6 @@ statusbar = {
       position = "1";
       # active, inactive, always
       visible = "active";
-
       # list of items in statusbar in the display order
       items = {
         barstart = { priority = "100"; };
@@ -180,24 +190,41 @@ statusbar = {
       };
       disabled = "yes";
     };
+
   };
 };
+
+
 settings = {
   core = {
     real_name = "tbuck153";
-    user_name = "tbck";
+    user_name = "tbuck";
     nick = "tbuck";
     timestamp_Format = "";
     use_proxy = "no";
-    proxy_string = "CONNECT %s:%d HTTP/1.0\012\012";
-    proxy_address = "119.252.160.34";
-    proxy_port = "8080";
-    proxy_string_after = "conn %s %d";
-    proxy_password = "";
+    proxy_string = "";
   };
-  "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "irssi"; timestamps = "no"; };
+  "fe-text" = { 
+    actlist_sort = "refnum";
+    autostick_split_windows = "yes";
+  };
+  "fe-common/core" = {
+    theme = "irssi";
+    timestamps = "no";
+    autocreate_own_query = "no";
+    autocreate_query_level = "DCCMSGS";
+    use_status_window = "yes";
+    use_msgs_window = "no";
+  };
   "perl/core/scripts" = { splitlong_max_length = "60"; };
-  "irc/core" = { alternate_nick = "tbuck153"; };
+  "irc/core" = { alternate_nick = "tbuck_"; };
 };
+
+
+ignores = (
+  { mask = "TWATLANDIA"; level = "ALL"; },
+  { mask = "*!*@*.2F5A4717.52B68AF4.C751CDAF.IP"; level = "ALL"; }
+);
+
+
 keyboard = ( { key = "^L"; id = "command"; data = "clear"; } );

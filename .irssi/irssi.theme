@@ -27,7 +27,7 @@ abstracts = {
   hilight = "%_$*%_";
 
   # any kind of error message, default is bright red
-  error = "%R$*%n";
+  error = "%r$*%n";
 
   # channel name is printed
   channel = "%b$*%n";
@@ -43,7 +43,7 @@ abstracts = {
   server = "%_$*%_";
 
   # some kind of comment is printed
-  comment = "%n(%b\"$*\"%n);";
+  comment = "%n(%C\"$*\"%n);";
 
   # reason for something is printed (part, quit, kick, ..)
   reason = "{comment $*}";
@@ -71,13 +71,13 @@ abstracts = {
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
   # msgnick = "$1-$0%K·%N %|";
-  #msgnick = "%K$0%N $1 %K│ %|%N";
+  #msgnick = "%K$0%N $1 %l│ %|%N";
   # msgnick = "%K$0%N $1 %K· %|%N";
   msgnick = "%K%N $1 %K│  %|%N";
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0 $1}";
-  ownnick = "%Y$*%n";
+  ownnick = "%b$*%n";
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0 $1}";
@@ -85,13 +85,13 @@ abstracts = {
 
   # public highlighted message in channel
   pubmsghinick = "{msgnick $0 $1}%r";
-  menick = "%R$*%n";
+  menick = "%m$*%n";
 
   # channel name is printed with message
-  msgchannel = "%K:%m$*%n";
+  msgchannel = "%K:%R$*%n";
 
   # private message, $0 = nick, $1 = host
-  privmsg = "$0=%b\"$1-\"%n ";
+  privmsg = "$0=%B\"$1-\"%n ";
 
   # private message from you, $0 = "msg", $1 = target nick
   ownprivmsg = "$0=%b\"$1-\"%n ";
@@ -102,7 +102,7 @@ abstracts = {
 
   # own private message in query
   #ownprivmsgnick = "{privmsgnick $*}";
-  ownprivmsgnick = " %r>%N ";
+  ownprivmsgnick = " %R>%N ";
   #ownprivnick = "$*";
 
 
@@ -150,14 +150,14 @@ abstracts = {
   whois = "%#    $[8]0 = $1-;";
 
   # notices
-  ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
-  notice = "%M$*%n ";
+  ownnotice = "%NNote n = %Rnew%n $0 ($1-) ";
+  notice = "%R$*%n ";
   pubnotice_channel = " %N($*)";
   pvtnotice_host = " %N($*)";
   servernotice = " %N($*)";
 
   # CTCPs
-  ownctcp = "%NCTCP c = %Mnew%n $0 ($1-) ";
+  ownctcp = "%NCTCP c = %Rnew%n $0 ($1-) ";
   ctcp = "%N$*%n";
 
   # wallops
@@ -166,7 +166,7 @@ abstracts = {
   wallop_action = "%K * $*%n ";
 
   # netsplits
-  netsplit = "       %Knsplit %R│ %b\"$*\"%n";
+  netsplit = "       %Knsplit %r│ %b\"$*\"%n";
   netjoin = "        %Knjoin %G│ %b\"$*\"%n";
 
   # /names list
@@ -201,7 +201,7 @@ abstracts = {
   sb_background = "%9";
 
   # default backround for "default" statusbar group
-  #sb_default_bg = "%4";
+  sb_default_bg = "%0";
   # background for prompt / input line
   sb_prompt_bg = "%n";
   sb_prompt_fg = "%y";
@@ -212,7 +212,7 @@ abstracts = {
 
   # text at the beginning of statusbars. sb-item already puts
   # space there,so we don't use anything by default.
-  sbstart = "";
+  sbstart = "%K";
   # text at the end of statusbars. Use space so that it's never
   # used for anything.
   sbend = "";
@@ -220,7 +220,7 @@ abstracts = {
   topicsbstart = "%BChannel: %b\"$*";
   topicsbend = "$*%b\"";
 
-  prompt = " %k» %n ";
+  prompt = "            %K>> %n ";
 
   sb = "[$*]";
   sbmode = " %K[%g%g+%n$*%K]";
@@ -243,11 +243,11 @@ abstracts = {
   # normal text
   sb_act_text = "%K%9$*%n";
   # public message
-  sb_act_msg = "%Y%9$*%n";
+  sb_act_msg = "%K%9$*%n";
   # hilight
-  sb_act_hilight = "%R%9$*%n";
+  sb_act_hilight = "%m%9$*%n";
   # hilight with specified color, $0 = color, $1 = text
-  sb_act_hilight_color = "%R%9$1-%n";
+  sb_act_hilight_color = "%m%9$1-%n";
 };
 
 ########################################################
@@ -257,16 +257,16 @@ formats = {
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
-    join = "        %Kjoin │ %g {channick $0}";
-    part = "       %K part │ %r {channick $0}";
-    kick = "     %K kicked │ %r {channick $0}";
-    quit = "       %K quit │ %r {channick $0}";
-    quit_once = "{channel $3} {channick $0} {chanhost $1} %kquit {reason %C$2}";
+    join = "         %K>%G>%K> │ %g {channick $0}";
+    part = "       %K part │ %R {channick $0}";
+    kick = "     %K kicked │ %R {channick $0}";
+    quit = "         %K<%R<%K< │ %R {channick $0}";
+    quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %C$2}";
 
-    nick_changed = "%K{channick $[-13]0}│ %p {channick $1}";
-    your_nick_changed = "%K         you │ %p {channick $1}";
+    nick_changed = "%K{channick $[-13]0}│ %c {channick $1}";
+    your_nick_changed = "%K         you │ %c {channick $1}";
 
-    pubmsg = "{pubmsgnick $2 {pubnick \00304$[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00303$[-11]0}}$1";
 
     own_msg = "{ownmsgnick $2 {ownnick $[-11]0}}$1";
     own_msg_channel = "{ownmsgnick $3 {ownnick $[-11]0}{msgchannel $1}}$2";
@@ -281,12 +281,13 @@ formats = {
     pubmsg_channel = "{pubmsgnick {pubnick %G$[-11]0}$2}$1";
     msg_private_query = "{privmsgnick $[-11]0}$2";
     new_topic = "       %ctopic %K│  %B'$2' %non %b$1%n%K[set by {nick %y$0}]";
+    topic = "       %ctopic %K│  %B'$2' %non %b$1%n%K[set by {nick %y$0}]";
 
     endofnames = "       names %Y│%m  Total: {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal%n";
   };
   "fe-common/irc" = {
-    chanmode_change = "        %Kmode │  {channick $1}%n";
-    server_chanmode_change = "%       %K mode │  {channick $1}%n";
+    chanmode_change = "            %K │  {channick $1}%n";
+    server_chanmode_change = "%           %K  │  {channick $1}%n";
 
     own_action = "{ownaction $[-11]0} $1";
     action_private = "{pvtaction $[-11]0}$1";

@@ -1,6 +1,6 @@
 servers = (
   {
-    address = "irc.unixhub.net";
+    address = "192.157.248.101";
     chatnet = "unixhub";
     port = "6667";
     use_ssl = "no";
@@ -21,16 +21,18 @@ servers = (
 chatnets = {
   unixhub = {
     type = "IRC";
-    autosendcmd = "/msg NickServ identify hashdriveway;wait 2000";
   };
-  freenode = { type = "IRC"; autosendcmd = "wait 2000"; };
+  freenode = { 
+    type = "IRC"; 
+  };
 };
 
 
 channels = (
   { name = "#unixhub"; chatnet = "unixhub"; autojoin = "yes"; },
   { name = "#bspwm"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "##slackware"; chatnet = "freenode"; autojoin = "no"; }
+  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "##slackware"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 

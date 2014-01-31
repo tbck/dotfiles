@@ -1,3 +1,5 @@
+! By Gutterslob
+
 URxvt*background:       #170F0D
 URxvt*foreground:       #746C48
 URxvt*cursorColor:      #544B2E
@@ -26,3 +28,5 @@ URxvt*color14:          #778725
 
 URxvt*color7:           #C8B55B
 URxvt*color15:          #E4DC8C
+
+! vim: set ft=xdefaults:

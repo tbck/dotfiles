@@ -1,4 +1,5 @@
-!! jellybeans colors
+!! jellybeans
+
 ! 8 8 8
 ! *background: #080808
 ! 128 128 128
@@ -43,3 +44,5 @@
 *color7:  #808080
 ! 215 215 215
 *color15: #d7d7d7
+
+! vim: set ft=xdefaults:

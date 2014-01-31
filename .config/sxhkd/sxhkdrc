@@ -2,6 +2,7 @@
 # [ ~/.config/sxhkd/sxhkdrc ]
 # 'Annotated' by tbck['s broken english]
 # ... even though most are self explanitory
+# output of `xev'
 ##
 
 
@@ -10,139 +11,110 @@
 ##
 
 
-## VIEW / FOCUS ##
-
-## focus clicked window
-~button1
-    bspc pointer -g focus
 ## focus / shift window by direction
 super + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 ## focus or move window to desktop
 super + {_,shift + }{1-9,0}
     bspc {desktop -f,window -d} ^{1-9,10}
-## focus previous window / desktop
-super + {grave,Tab}
-    bspc {window,desktop} -f last
-## cycle window focus
-super + {_,shift + }c
-    bspc window -f {next,prev}
-## cycle focus of tiled windows
-super + {d,shift + d}
-    bspc window -f {next,prev}.tiled
-## cycle focus of floating, unlike or like windows
-super + {_,shift + }{a,v,e}
-    bspc window -f {next,prev}.{floating,unlike,like}
 ## focus prev / next desktop
 super + bracket{left,right}
     bspc desktop -f {prev,next}
-## focus next / next free desktop
-super + alt + bracket{left,right}
-    bspc desktop -f {prev,next}.free
-## focus prev / next occupied desktop
-super + ctrl + bracket{left,right}
-    bspc desktop -f {prev,next}.occupied
-## focus prev / next urgent desktop
-super + ctrl + paren{left,right}
-    bspc desktop -f {prev,next}.urgent
-## change focus, override history
-super + {_,alt + }{o,i}
-    bspc control --record-history off; \
-    bspc {window,desktop} {older,newer} -f; \
-    bspc control --record-history on
-## change focus on current monitor, override history
-super + {_,alt + }{p,n}
-    bspc control --record-history off; \
-    bspc {window,desktop} {older,newer}.local -f; \
-    bspc control --record-history on
+## cycle window focus
+super + {_,shift + }c
+    bspc window -f {next,prev}
+## focus previous window / desktop
+super + {grave,Tab}
+    bspc {window,desktop} -f last
+
+
+## close window or kill it
+super + w
+    bspc window -c
 ## toggle visibility of all windows
 super + z
     bspc control --toggle-visibility
+
+
+## transplant current window into presel area
+super + y
+    bspc window -w last.manual
+## swap current window with previous window
+super + {_,shift + }apostrophe
+    bspc window -s last{_, -f last}
 ## swap with largest window or focus
 super + {_,alt + }m
     bspc window -{s,f} biggest
 
 
-## WINDOWS ##
-
-## close window or kill it
-super + w
-    bspc window -c
-## transplant current window into presel area
-super + y
-    bspc window -w last.manual
-## change presel split
-super + ctrl + {1-9}
-    bspc window -r 0.{1-9}
-## cycle windows back / forward not workintggggg
-super + {comma,period}
-    bspc desktop -C {backward,forward}
-## toggle floating / fullscreen window
-super + {s,f,x,X,M}
-    bspc window -t {floating,fullscreen,locked,sticky,private}
-## balance windows
-super + b
-    bspc desktop -B
-## send window to prev / next desktop
-super + shift + bracket{left,right}
-    bspc window -d {prev,next}
-## swap current window with previous window
-super + {_,shift + }apostrophe
-    bspc window -s last{_, -f last}
 ## presel by direction
 super + ctrl + {h,j,k,l}
     bspc window -p {left,down,up,right}
+## change presel split
+super + ctrl + {1-9}
+    bspc window -r 0.{1-9}
+
+
 ## push window split
 super + alt + {h,j,k,l}
-    bspc window -e {left,down,up,right} push
+    bspc window -e {left -20,down +20,up -20,right +20}
 ## pull window split
 super + alt + shift + {h,j,k,l}
-    bspc window -e {right,up,down,left} pull
-## resize window splits with pointer
-super + button{1-3}
-    bspc pointer -g {move,resize_side,resize_corner}
-## cancel presel on window / desktop
-super + ctrl + {_,shift + }space
-    bspc {window -p cancel,desktop -c}
+    bspc window -e {right -20,up +20,down -20,left +20}
+
+
+## send window to prev / next desktop
+super + shift + bracket{left,right}
+    bspc window -d {prev,next}
 ## send window to prev / next desktop and follow
 super + alt + shift + bracket{left,right}
     bspc window -d {prev,next} -f
-## set one shot property for next opened window
-super + alt + {s,f,x,X,M}
-    bspc rule -a \* {--floating,--fullscreen,--locked,--sticky,--private} --one-shot
-## open next window on a certain desktop
-super + alt + {1-9,0}
-    bspc rule -a \* -d ^{1-9,10} --one-shot
-## explicitly define split
-super + alt + ctrl + {h,j,k,l} ; {0-9}
-    bspc window -e {right,up,down,left} 0.{0-9}
 
-
-## DESKTOPS ##
 
 ## cycle layouts
 super + t
     bspc desktop -l next
-## flip desktop vertically / horizontally
+## toggle psuedo_tile
+super + alt + space
+    bspc window -t pseudo_tiled
+## toggle modes
+super + {s,f,x,X,M}
+    bspc window -t {floating,fullscreen,locked,sticky,private}
+
+
+## flip desktop
 super + {backslash,shift + backslash}
     bspc desktop -F {vertical,horizontal}
-## rotate desktop 90* by direction or 180*
-super + {r,R,u}
-    bpsc desktop -R {90,-90,180}
+## rotate desktop
+super + {r,R}
+    bspc desktop -R {90,-90}
+## cycle windows
+super + {comma,period}
+    bspc desktop -C {backward,forward}
 
 
+## one-shot psuedo tile
+super + alt + shift + space
+    bspc rule -a \* -o pseudo_tiled=on
+## open next window on a certain desktop
+super + alt + {1-9,0}
+    bspc rule -a \* -o desktop=^{1-9,10}
+## set one shot property for next opened window
+super + alt + {s,f,x,X,M}
+    bspc rule -a \* -o {floating,fullscreen,locked,sticky,private}=on
 
-## OTHER ##
 
-## spawn a transparent frame
-super + alt + space
-    create_frame
-## reset rules
-#super + shift + alt + space
-#    bspc rule -r \*
 ## dat
 super + !button{1-3}
     bspc pointer -t %i %i
+## focus clicked window
+~button1
+    bspc pointer -g focus
+## resize window splits with pointer
+super + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+
 ## exit bspwm and kill panel. save history if just restarting
 super + alt + {shift + ,_}Escape
     pkill -x panel; {bspc quit 1,\
@@ -155,7 +127,6 @@ super + alt + {shift + ,_}Escape
 ##                            ##
 #    wm independent hotkeys    #
 ##                            ##
-
 
 ## spawn terminal
 super + Return
@@ -171,18 +142,32 @@ super + {Pause,shift + Pause}
 
 ## raise / lower volume
 XF86Audio{Raise,Lower}Volume
-    amixer -M set Master 4%{+,-}
+    amixer -M set Master 4%{+,-}; \
+    getvol -M > $PANEL_FIFO
 
 ## mute volume
 XF86AudioMute
-    amixer -M set Master toggle
+    amixer -M set Master toggle; \
+    getvol -M > $PANEL_FIFO
+
+## adjust display brightness
+XF86MonBrightness{Up,Down}
+    xbacklight -set $((`xbacklight -get` {+,-} 20))
+
+## toggle external monitor
+XF86Display
+    togglemonitor
+
+## suspend
+XF86Sleep
+    sudo pm-suspend
 
 
 ##           ##
 #    sxhkd    #
 ##           ##
 
-
 ## make sxhkd reload its configuration files.
 super + Escape
     pkill -USR1 -x sxhkd
+

@@ -5,7 +5,6 @@
 !! Mouse cursor
 Xcursor.theme: Vanilla-DMZ
 
-
 !! Font rendering
 Xft.antialias:          1
 Xft.autohint:           0
@@ -35,9 +34,8 @@ URxvt.cursorUnderline:  true
 !*background:            #101111
 !*foreground:            #C0C0C0
 
-!! Dwarf Fortress colors for ncurses
-#include "/home/tbck/.colors/dwarffortress/default"
-
 !! Colorscheme
 #include "/home/tbck/.colors/gutterslob/rstcogburn"
 
+!! Dwarf Fortress colors for ncurses
+!#include "/home/tbck/.colors/dwarffortress/default"

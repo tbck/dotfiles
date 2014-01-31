@@ -122,6 +122,8 @@ filetype plugin indent on
 
 if has("autocmd")
     au BufReadPost *.rkt,*.rktl set filetype=scheme
+    au BufReadPost *.ino set filetype=cpp
+    au BufNewFile *.ino set filetype=cpp
     "" Hopefully sets .php files to be html also
     au BufRead *.php set ft=php.html
     au BufNewFile *.php set ft=php.html
@@ -136,3 +138,4 @@ autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 au BufRead *.java setlocal omnifunc=javacomplete#Complete
 au BufNewFile *.java setlocal omnifunc=javacomplete#Complete
 let g:SuperTabDefaultCompletionType = 'context'
+

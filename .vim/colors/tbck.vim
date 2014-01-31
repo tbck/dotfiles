@@ -2,7 +2,7 @@
 " vim: tw=0 ts=4 sw=4
 " Vim color file
 " Maintainer:   Tyler Buck
-" Last Change:	2013 Nov
+" Last Change:	2014 Nov
 
 hi clear
 set background=dark
@@ -11,7 +11,10 @@ if exists("syntax_on")
 endif
 let g:colors_name = "tbck"
 
-highlight Comment           ctermfg=8
+"highlight Normal            ctermfg=7
+"highlight Cursor            ctermfg=8
+
+highlight Comment           ctermfg=8 
 highlight LineNr            ctermfg=8
 highlight NonText           ctermfg=8
 
@@ -52,8 +55,15 @@ highlight SpecialComment    ctermfg=2
 highlight Debug             ctermfg=2
 
 highlight Error			    ctermfg=0   ctermbg=9
+highlight ErrorMsg		    ctermfg=0   ctermbg=9
 highlight Todo		        ctermfg=4   ctermbg=3
 highlight Directory         ctermfg=2
 highlight StatusLine        ctermfg=11  ctermbg=12 cterm=none
 highlight Underlined        ctermfg=12
 highlight Search		    		    ctermbg=3
+
+"highlight DiffAdd           ctermfg=0   ctermbg=0
+"highlight DiffDelete        ctermfg=0   ctermbg=0
+"highlight DiffChange        ctermfg=0   ctermbg=0
+"highlight DiffText          ctermfg=0   ctermbg=0
+

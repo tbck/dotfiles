@@ -1,9 +1,7 @@
-URxvt.font:xft:drift:size=8
-URxvt.boldFont:xft:drift:size=8
-URxvt.scrollBar:false
+! By Genie
 
-URxvt.background: #ffffff
-URxvt.foreground: #000000
+!URxvt.background: #ffffff
+!URxvt.foreground: #000000
 
 !Black / Light black
 urxvt*color0: #222222
@@ -30,3 +28,4 @@ urxvt*color14: #587d6a
 urxvt*color7:  #dedede
 urxvt*color15: #f2f2f2
 
+! vim: set ft=xdefaults:

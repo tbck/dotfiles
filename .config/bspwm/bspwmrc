@@ -6,26 +6,41 @@
 ##
 
 ## Monitors, Desktops & Tags
-bspc monitor -d 1 2 3
+if (xrandr | egrep -q "HDMI.* connected") ; then
+    echo "Using LVDS1 and HDMI1"
+    xrandr --output LVDS1 --primary --auto --output HDMI1 --auto --right-of LVDS1
+    if (`bspc query -M | head -n 1` == HDMI1); then
+        bspc monitor LVDS1 -s HDMI1
+    fi
+    bspc monitor LVDS1 -d 1 2 3
+    bspc monitor HDMI1 -d 4 5
+    bspc config -m HDMI1 window_gap 32
+    bspc config -m HDMI1 bottom_padding 0
+else
+    echo "Using LVDS1"
+    xrandr --output LVDS1 --auto --primary --output HDMI1 --off
+    bspc monitor LVDS1 -d 1 2 3
+    #bspc control --adopt-orphans
+fi
 
 ## Window rules
-bspc rule -a Gimp -d ^3 --follow --floating
+bspc rule -a Gimp desktop=3 follow=on floating=on
+bspc rule -a Steam desktop=3 follow=on floating=on
+# arduino
+#bspc rule -a processing-app-Base follow=on floating=on
 
 ## Configuration
-bspc config split_ratio            0.64
-bspc config border_width           2
-bspc config window_gap             12
-bspc config borderless_monocle     false
-bspc config gapless_monocle        false
-bspc config focus_follows_pointer  true
-bspc config history_aware_focus    true
-bspc config auto_cancel            true
-
-## Frames
-bspc rule -a BSPWM_FRAME --frame
-bspc config normal_frame_opacity    0.0
-bspc config active_frame_opacity    0.0
-bspc config focused_frame_opacity   0.1
+bspc config border_width            2
+bspc config -m LVDS1 window_gap     12
+bspc config -d 2 window_gap         42
+bspc config split_ratio             0.64
+bspc config borderless_monocle      false
+bspc config gapless_monocle         false
+bspc config focus_follows_pointer   true
+bspc config history_aware_focus     true
+bspc config auto_cancel             true
+bspc config adaptive_raise          true
+bspc config remove_disabled_monitor true
 
 ## Colorscheme - "theme"
 source ~/.config/bspwm/colors/fall
@@ -37,11 +52,11 @@ if [ -e "$BSPWM_TREE" ] ; then
 fi
 
 ## Misc Startup
-sxhkd &
-xsetroot -cursor_name left_ptr
-unclutter -root -jitter 5 -idle 2 -noevents &
-compton -cfFb -o 0.32 -O 0.03 -I 0.03 -t -11 -l -11 -r 4 -D2 \
-    --shadow-exclude 'g:ai:dmenu'
+#xsetroot -cursor_name left_ptr
+#unclutter -root -jitter 5 -idle 2 -noevents &
+#compton -cfFb -o 0.32 -O 0.03 -I 0.03 -t -11 -l -11 -r 4 -D2 \
+#    --shadow-exclude 'g:ai:dmenu'
 
 ## Lastly, start panel.
 panel &
+

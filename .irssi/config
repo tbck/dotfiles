@@ -2,14 +2,22 @@ servers = (
   {
     address = "192.157.248.101";
     chatnet = "unixhub";
-    port = "6667";
-    use_ssl = "no";
+    port = "6697";
+    use_ssl = "yes";
     ssl_verify = "no";
     autoconnect = "yes";
   },
   {
     address = "irc.freenode.net";
     chatnet = "freenode";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.iotek.org";
+    chatnet = "iotek";
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
@@ -21,9 +29,15 @@ servers = (
 chatnets = {
   unixhub = {
     type = "IRC";
+    autosendcmd = "/msg NickServ identify password;wait 2000";
   };
-  freenode = { 
-    type = "IRC"; 
+  freenode = {
+    type = "IRC";
+    autosendcmd = "/msg NickServ identify password;wait 2000";
+  };
+  freenode = {
+    type = "IRC";
+    autosendcmd = "/msg NickServ identify password;wait 2000";
   };
 };
 
@@ -31,7 +45,8 @@ chatnets = {
 channels = (
   { name = "#unixhub"; chatnet = "unixhub"; autojoin = "yes"; },
   { name = "#bspwm"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#wizards"; chatnet = "iotek"; autojoin = "yes"; },
   { name = "##slackware"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
@@ -225,8 +240,15 @@ settings = {
 
 ignores = (
   { mask = "TWATLANDIA"; level = "ALL"; },
-  { mask = "*!*@*.2F5A4717.52B68AF4.C751CDAF.IP"; level = "ALL"; }
+  { mask = "*!*@*.2F5A4717.52B68AF4.C751CDAF.IP"; level = "ALL"; },
+  { mask = "rude"; level = "ALL"; },
+  { mask = "Rudolf"; level = "ALL"; },
+  { mask = "rudolf"; level = "ALL"; },
+  { mask = "bokso"; level = "ALL"; }
+  { mask = "bosk0"; level = "ALL"; }
+  { mask = "bsk0"; level = "ALL"; }
 );
 
 
 keyboard = ( { key = "^L"; id = "command"; data = "clear"; } );
+

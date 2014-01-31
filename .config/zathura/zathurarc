@@ -1,4 +1,4 @@
-set font                      cure
+set font                      "Cure 11px"
 
 set default-bg                "#170F0D"
 set default-fg                "#746C48"

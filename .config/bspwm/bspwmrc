@@ -9,7 +9,7 @@
 if (xrandr | egrep -q "HDMI.* connected") ; then
     echo "Using LVDS1 and HDMI1"
     xrandr --output LVDS1 --primary --auto --output HDMI1 --auto --right-of LVDS1
-    if (`bspc query -M | head -n 1` == HDMI1); then
+    if [ $(bspc query -M | head -n 1) == HDMI1 ]; then
         bspc monitor LVDS1 -s HDMI1
     fi
     bspc monitor LVDS1 -d 1 2 3

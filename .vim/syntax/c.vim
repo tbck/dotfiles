@@ -338,7 +338,7 @@ hi def link cOctalZero		PreProc	 " link this to Error if you want
 hi def link cFloat		    Float
 hi def link cOctalError		cError
 hi def link cParenError		cError
-hi def link cErrInParen		cError
+hi def link cErrInParen		Normal
 hi def link cErrInBracket	cError
 hi def link cCommentError	cError
 hi def link cCommentStartError	cError

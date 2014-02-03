@@ -2,14 +2,16 @@
 
 ##
 # [ ~/.config/bspwm/bspwmrc ]
-# Run when bspwm is started.
 ##
 
 ## Monitors, Desktops & Tags
-if (xrandr | egrep -q "HDMI.* connected") ; then
+if (xrandr | grep "HDMI1 connected") ; then
     echo "Using LVDS1 and HDMI1"
     xrandr --output LVDS1 --primary --auto --output HDMI1 --auto --right-of LVDS1
+    # this would be nice if bspwm didnt start floating windows at 0x0 regardless
+    #xrandr --output LVDS1 --pos 0x282 --panning 1366x768+0+282
     if [ $(bspc query -M | head -n 1) == HDMI1 ]; then
+        # if bspwm recognizes HDMI1 as first monitor, swap
         bspc monitor LVDS1 -s HDMI1
     fi
     bspc monitor LVDS1 -d 1 2 3
@@ -20,6 +22,7 @@ else
     echo "Using LVDS1"
     xrandr --output LVDS1 --auto --primary --output HDMI1 --off
     bspc monitor LVDS1 -d 1 2 3
+    # currently, i run this manually
     #bspc control --adopt-orphans
 fi
 
@@ -44,6 +47,7 @@ bspc config remove_disabled_monitor true
 
 ## Colorscheme - "theme"
 source ~/.config/bspwm/colors/fall
+feh --bg-scale ~/pictures/walls/large/leaves2.jpg --no-fehbg
 
 ## History
 if [ -e "$BSPWM_TREE" ] ; then
@@ -51,12 +55,10 @@ if [ -e "$BSPWM_TREE" ] ; then
     rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
 fi
 
-## Misc Startup
-#xsetroot -cursor_name left_ptr
-#unclutter -root -jitter 5 -idle 2 -noevents &
-#compton -cfFb -o 0.32 -O 0.03 -I 0.03 -t -11 -l -11 -r 4 -D2 \
-#    --shadow-exclude 'g:ai:dmenu'
-
 ## Lastly, start panel.
-panel &
+if bspc query -M | grep HDMI1; then
+    panel_xinerama &
+else
+    panel &
+fi
 

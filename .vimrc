@@ -7,6 +7,10 @@
 "" Executes pathogen to infect runtime path duh.
 execute pathogen#infect()
 
+syntax on
+colorscheme tbck
+filetype plugin indent on
+
 "" Number of spaces that a <Tab> in the file counts for.
 set tabstop=4
 
@@ -28,8 +32,10 @@ set smarttab
 "" Show (partial) command in status line.
 set showcmd
 
-"" Show line numbers.
+"" Show current line number.
 set number
+"" Show relative line numbers.
+set relativenumber
 
 "" When a bracket is inserted, briefly jump to the
 "" matching one. The jump is only done if the match can
@@ -100,6 +106,34 @@ set nowritebackup
 "" Always show the statusbar.
 "set laststatus=2
 
+"" localleader
+:let maplocalleader = "\\"
+
+"" CTRL+X O omnicompletion
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+
+let g:closetag_filenames = "*.html,*.hbs"
+"autocmd BufNewFile,BufRead *.scss set ft=scss.css
+"autocmd BufNewFile,BufRead *.less set ft=less.css
+
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-h>"
+
+"let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+
+"  \ 'file': '\v\.(exe|so|dll)$',
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|node_modules|tmp|bower_components|dist)$'
+  \}
+
 "" Remove vertical split characters
 set fillchars=vert:\ 
 
@@ -115,16 +149,10 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-syntax on
-colorscheme tbck-fall
-
-filetype plugin indent on
-
 if has("autocmd")
     au BufReadPost *.rkt,*.rktl set filetype=scheme
     au BufReadPost *.ino set filetype=cpp
     au BufNewFile *.ino set filetype=cpp
-    "" Hopefully sets .php files to be html also
     au BufRead *.php set ft=php.html
     au BufNewFile *.php set ft=php.html
 endif
@@ -132,10 +160,25 @@ endif
 "" Run ftp in passive mode
 let g:netrw_ftp_cmd = 'ftp -p'
 
-"Added by android-vim:
-set tags+=/home/tbck/.vim/tags
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-au BufRead *.java setlocal omnifunc=javacomplete#Complete
-au BufNewFile *.java setlocal omnifunc=javacomplete#Complete
-let g:SuperTabDefaultCompletionType = 'context'
+"" local vimrc settings
+let g:localvimrc_count = 1
+let g:localvimrc_ask = 0
+let g:localvimrc_sandbox = 0
+
+"" syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_less_options = '--include-path=src/styles/lib/:node_modules/'
+"let g:syntastic_less_use_less_lint = 1
+
+let g:syntastic_less_options = '--lint'
+let g:syntastic_javscript_checkers = ['jshint']
+
+let NERDTreeShowHidden = 1
+let NERDTreeIgnore = ['^\.git$', '^\.lvimrc$', '\.[A-Za-z0-9-_,.]*\.un\~$', '\.[A-Za-z0-9-_,.]*\.swp$']
 

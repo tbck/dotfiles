@@ -20,19 +20,7 @@ xset +fp $HOME/.fonts
 xset fp rehash
 ## Disable system beep
 xset -b
+xsetroot -cusor_name left_ptr
 
-#compton -cfFb -o 0.32 -O 0.03 -I 0.03 -t 4 -l 4 -r 4 -D2
-xsetroot -cursor_name left_ptr
-unclutter -root -jitter 5 -idle 2 -noevents &
-pgrep -x sxhkd && pkill -x sxhkd
-sxhkd &
-
-## Start a fresh panel-fifo
-[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-mkfifo "$PANEL_FIFO"
-## workaround for bspwm bug
-## if battery dies bspwm socket needs to be deleted
-[ -e /tmp/bspwm:0-socket ] && rm /tmp/bspwm:0-socket
-## Start bspwm
-exec wm
+exec i3 -V >> /home/tbck/i3log 2>&1
 

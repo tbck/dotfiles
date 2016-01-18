@@ -20,3 +20,5 @@ done
 #    source $r
 #done
 
+eval "$(gurnt --completion=zsh)"
+

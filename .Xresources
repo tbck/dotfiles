@@ -15,27 +15,27 @@ Xft.lcdfilter:          lcddefault
 Xft.rgba:               rgb
 
 !! URxvt
-URxvt.font:             xft:tewi:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
-URxvt.boldFont:         xft:tewi:medium:pixelsize=8, xft:tewi:bold:pixelsize=8
-!URxvt.font:             -lucy-tewi2a-medium-r-normal-*-11-90-75-75-p-58-iso10646-1
+URxvt*font:             xft:tewi:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
+URxvt*Font:             xft:tewi:medium:pixelsize=8, xft:tewi:medium:pixelsize=8
+URxvt*boldFont:         xft:tewi:medium:pixelsize=8, xft:tewi:bold:pixelsize=8
+URxvt*BoldFont:         xft:tewi:medium:pixelsize=8, xft:tewi:bold:pixelsize=8
 URxvt.scrollstyle:      plain
 URxvt.scrollBar:        false
 URxvt.scrollBar_right:  true
 URxvt.scrollColor:      #2B2B2B
 URxvt.cursorUnderline:  true
+URxvt.internalBorder:   5
 !URxvt.depth:            32
 !URxvt.letterSpace:      1
 
-!! Vim
-!Vim*font:               xft:Terminus Powerline:medium:pixelsize=12
-!Vim*boldFont:           xft:Terminus Powerline:medium:pixelsize=12
-
-!! Default colors
-!*background:            #101111
-!*foreground:            #C0C0C0
+!! Extensions
+URxvt.perl-ext-common:      url-select
+URxvt.keysym.M-u:           perl: url-select:select_next
+URxvt.url-select.autocopy:  false
+URxvt.url-select.button:    3
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
 
 !! Colorscheme
-#include "/home/tbck/.colors/gutterslob/rstcogburn"
+#include "/home/tbck/.colors/julie"
 
-!! Dwarf Fortress colors for ncurses
-!#include "/home/tbck/.colors/dwarffortress/default"

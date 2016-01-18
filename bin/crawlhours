@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sed 's/.*:dur=\([0-9]*\):.*/\1/g' ~/.crawl/saves/logfile | awk '{s+=$1} END {print s/3600 " hrs"}'

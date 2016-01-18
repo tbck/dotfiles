@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# GmnFrost borders
-bspc config focused_border_color \#1e828c
-bspc config normal_border_color \#323246
-
-# wallpaper
-hsetroot -fill ~/pictures/swordandsworcery_netbook.png

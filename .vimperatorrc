@@ -3,10 +3,10 @@
 ""
 
 "" general settings
+colors tbck
 set autocomplete=true
 set noscrollbars
 set maxitems=8
-colors fall
 set! browser.download.manager.showWhenStarting=false
 set! browser.tabs.closeWindowWithLastTab=false
 set hintchars=hjklasdfgyuiopqwertnmzxcvb
@@ -34,10 +34,10 @@ noremap i gi
 noremap R :source ~/.vimperatorrc<cr>
 
 "" bookmarks/commonly visited sites
-"map <C-1> treddit.com<Return>
-"map <C-2> treddit.com/r/ssssunnyvale<Return>
-"map <C-3> treddit.com/r/rootsreggae<Return>
-"map <C-4> treddit.com/r/minecraft<Return>
+"map <C-1> t<Return>
+"map <C-2> t<Return>
+"map <C-3> t<Return>
+"map <C-4> t<Return>
 "map <C-5> t<Return>
 "map <C-6> t<Return>
 "map <C-7> t<Return>
@@ -75,3 +75,4 @@ function load_video() {
     liberator.execute("!vlc '"+url+"' > /dev/null 2>&1 &");
     }
 EOF
+

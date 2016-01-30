@@ -1,7 +1,6 @@
 ##
 # [ ~/.config/zsh/settings.zsh ]
 # Sourced by .zshrc
-# See ZSH(1) for more info.
 ##
 
 ## Autoloads
@@ -27,4 +26,3 @@ zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 # initialize completion
 compinit
-

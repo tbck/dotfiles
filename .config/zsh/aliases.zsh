@@ -11,10 +11,6 @@ alias sxiv="sxiv -dr"
 
 alias changelog="curl -s ftp://ftp.slackware.com/pub/slackware/slackware64-current/ChangeLog.txt | less"
 
-# Mirror Gail's webpage. -nc prevents overwriting preexisting files.
-alias gail='wget -R html,htm -r -l inf --no-remove-listing -P /home/tbck/documents/COS/ \
-    -nH --cut-dirs=2 -nc -np http://faculty.umf.maine.edu/lange/public.www/cos3722013/'
-
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'

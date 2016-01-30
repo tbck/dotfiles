@@ -1,22 +1,10 @@
 Vim
 ===
 
-Plugins:
+Be sure to install pathogen:
 
-* YouCompleteMe
-* auto-pairs
-* ctrlp.vim
-* editorconfig-vim
-* ember.vim
-* nerdtree
-* portkey
-* ultisnips
-* vim-closetag
-* vim-css3-syntax
-* vim-less
-* vim-localvimrc
-* vim-mustache-handlebars
-* vim-snippets
-* vim-stylus
-* vim-surround
+```
+mkdir -p ~/.vim/autoload && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+```
 

@@ -20,5 +20,5 @@ done
 #    source $r
 #done
 
-eval "$(gurnt --completion=zsh)"
+eval "$(grunt --completion=zsh)"
 
